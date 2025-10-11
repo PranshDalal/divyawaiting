@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seconds Since 6:22</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    #seconds {
+      font-size: 3rem;
+      margin-top: 10px;
+      color: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Seconds Since 6:22</h1>
+  <div id="seconds">0</div>
+
+  <script>
+    function updateSeconds() {
+      const now = new Date();
+
+      // Change this to 18 for 6:22 PM or 6 for 6:22 AM
+      const reference = new Date();
+      reference.setHours(6, 22, 0, 0); 
+
+      // If current time is before 6:22 today, use yesterday's 6:22
+      if (now < reference) {
+        reference.setDate(reference.getDate() - 1);
+      }
+
+      const diffSeconds = Math.floor((now - reference) / 1000);
+      document.getElementById("seconds").textContent = diffSeconds.toLocaleString();
+    }
+
+    updateSeconds();
+    setInterval(updateSeconds, 1000);
+  </script>
+</body>
+</html>
