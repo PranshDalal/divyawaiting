@@ -33,12 +33,9 @@
   <script>
     function updateSeconds() {
       const now = new Date();
-
-      // Change this to 18 for 6:22 PM or 6 for 6:22 AM
       const reference = new Date();
-      reference.setHours(18, 22, 0, 0); 
+      reference.setHours(18, 30, 0, 0); 
 
-      // If current time is before 6:22 today, use yesterday's 6:22
       if (now < reference) {
         reference.setDate(reference.getDate() - 1);
       }
