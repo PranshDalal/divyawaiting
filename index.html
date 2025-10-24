@@ -34,12 +34,10 @@
     function updateSeconds() {
       const now = new Date();
       const reference = new Date();
-      reference.setHours(18, 30, 0, 0); 
-
+      reference.setHours(18, 15, 0, 0);
       if (now < reference) {
         reference.setDate(reference.getDate() - 1);
       }
-
       const diffSeconds = Math.floor((now - reference) / 1000);
       document.getElementById("seconds").textContent = diffSeconds.toLocaleString();
     }
